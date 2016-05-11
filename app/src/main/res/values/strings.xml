@@ -1,0 +1,300 @@
+<resources>
+    <string name="app_name">BF Populator</string>
+    <string name="action_settings">Settings</string>
+    <string name="empty_textview_text">Nothing to show!</string>
+    <string name="title_activity_add_item">Select Item</string>
+    <string name="title_activity_item_selected">Select Type</string>
+    <string name="title_activity_poultry">Item Details</string>
+
+    <string name="identity_pool">eu-west-1:bf1771fa-c87a-4133-b6d1-47bf07ef2b60</string>
+    <string name="raw_menu_items_table">RawMenuItems</string>
+
+    <string-array name="item_meat_string_array">
+        <item>Poultry</item>
+        <item>Red</item>
+        <item>Fish</item>
+        <item>Seafood</item>
+        <item>Processed meat</item>
+        <item>Eggs</item>
+    </string-array>
+    <string-array name="item_poultry_kind_string_array">
+        <item>Chicken</item>
+        <item>Duck</item>
+        <item>Pigeon</item>
+        <item>Turkey</item>
+        <item>Rabbit</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="item_poultry_part_string_array">
+        <item>Whole</item>
+        <item>Wings</item>
+        <item>Legs</item>
+        <item>Breast</item>
+        <item>Liver</item>
+    </string-array>
+    <string-array name="item_red_kind_string_array">
+        <item>Beef</item>
+        <item>Lamb</item>
+        <item>Goat</item>
+        <item>Camel</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="item_red_part_string_array">
+        <item>Chuck</item>
+        <item>Brisket</item>
+        <item>Rib</item>
+        <item>Sirloin</item>
+        <item>Tenderloin</item>
+        <item>Top sirloin</item>
+        <item>Bottom sirloin</item>
+        <item>Round</item>
+        <item>Short Loin</item>
+        <item>Plate</item>
+        <item>Shank</item>
+        <item>Flank</item>
+        <item>Liver</item>
+    </string-array>
+    <string-array name="item_fish_kind_string_array">
+        <item>Tilapia/Porgy</item>
+        <item>Mullet</item>
+        <item>Sea bass</item>
+        <item>Seabream</item>
+        <item>Sole</item>
+        <item>Saddle Grouper</item>
+        <item>Emperor</item>
+        <item>Sardines</item>
+        <item>Tuna</item>
+        <item>Catfish</item>
+        <item>Blue</item>
+        <item>Nile Perch</item>
+        <item>Salmon</item>
+        <item>Bream</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="item_seafood_kind_string_array">
+        <item>Shrimp</item>
+        <item>Calamari</item>
+        <item>Crab</item>
+        <item>Octopus</item>
+        <item>Anchovy</item>
+        <item>Mussels</item>
+        <item>Clams</item>
+        <item>Lobster</item>
+        <item>Octopus</item>
+        <item>Oysters</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="item_pmeat_kind_string_array">
+        <item>Pepperoni</item>
+        <item>Salami</item>
+        <item>Sausages</item>
+        <item>Smoked Turkey</item>
+        <item>Smoked Salmon</item>
+        <item>Burger</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="item_egg_kind_string_array">
+        <item>Whole</item>
+        <item>White</item>
+        <item>Yolk</item>
+    </string-array>
+
+    <string-array name="item_cooking_style_string_array">
+        <item>Grilled</item>
+        <item>Fried</item>
+        <item>Boiled/Steamed</item>
+        <item>Charbroiled/Baked</item>
+        <item>Raw</item>
+    </string-array>
+
+    <string-array name="item_carbs_string_array">
+        <item>Wheat</item>
+        <item>Rice</item>
+        <item>Pasta</item>
+        <item>Potatoes</item>
+        <item>Corn</item>
+        <item>Oats</item>
+    </string-array>
+    <string-array name="item_wheat_kind_string_array">
+        <item>White Bread</item>
+        <item>Whole grain Bread</item>
+        <item>White Flour</item>
+        <item>Whole grain Flour</item>
+    </string-array>
+    <string-array name="item_rice_kind_string_array">
+        <item>White (short grain)</item>
+        <item>White (long grain/Basmati)</item>
+        <item>Brown (short grain)</item>
+        <item>Brown (long grain/Basmati)</item>
+    </string-array>
+    <string-array name="item_pasta_kind_string_array">
+        <item>white</item>
+        <item>Whole grain</item>
+    </string-array>
+    <string-array name="item_potatoes_kind_string_array">
+        <item>White</item>
+        <item>White w skin</item>
+        <item>Sweet</item>
+        <item>Sweet w skin</item>
+    </string-array>
+    <string-array name="item_corn_kind_string_array">
+        <item>White</item>
+        <item>Yellow</item>
+    </string-array>
+    <string-array name="item_oats_kind_string_array">
+        <item>Quick</item>
+        <item>Traditional</item>
+    </string-array>
+
+    <string-array name="item_vegetables_kind_string_array">
+        <item>Carrots</item>
+        <item>Tomatoe</item>
+        <item>onions</item>
+        <item>Broccoli</item>
+        <item>Cucumber</item>
+        <item>lettuce</item>
+        <item>spinach</item>
+        <item>zuccini</item>
+        <item>eggplant</item>
+        <item>peas</item>
+        <item>avocado</item>
+        <item>green beans</item>
+        <item>cabbage</item>
+        <item>Pepper</item>
+        <item>Molukia</item>
+        <item>Taro</item>
+        <item>Sal2</item>
+        <item>green leaves</item>
+        <item>Olives</item>
+        <item>Mushrooms</item>
+    </string-array>
+
+    <string-array name="item_fruits_kind_string_array">
+        <item>Apple</item>
+        <item>Banana</item>
+        <item>Mango</item>
+        <item>Watermelon</item>
+        <item>Peach</item>
+        <item>Apricot</item>
+        <item>Strawberry</item>
+        <item>Blackberries</item>
+        <item>Guava</item>
+        <item>Grapes</item>
+        <item>Cantaloupe</item>
+        <item>Orange</item>
+        <item>Tangerine</item>
+        <item>Dates</item>
+    </string-array>
+
+    <string-array name="item_oils_kind_string_array">
+        <item>Olive</item>
+        <item>Flaxseed</item>
+        <item>Avocado</item>
+        <item>Coconut</item>
+        <item>Sunflower</item>
+        <item>Butter</item>
+        <item>Ghee</item>
+        <item>Canola</item>
+    </string-array>
+
+    <string-array name="item_legumes_kind_string_array">
+        <item>Yellow Lentils</item>
+        <item>Black lentils</item>
+        <item>Beans</item>
+        <item>Black beans</item>
+        <item>Red beans</item>
+        <item>Peas</item>
+        <item>Peanuts</item>
+    </string-array>
+
+    <string-array name="item_soup_kind_string_array">
+        <item>From Chicken</item>
+        <item>From Meat</item>
+        <item>From Lamb</item>
+        <item>From seafood</item>
+        <item>Processed (fine foods)</item>
+        <item>From Vegetables/Legumes</item>
+    </string-array>
+
+    <string-array name="item_beverage_kind_string_array">
+        <item>Pepsi</item>
+        <item>Merinda</item>
+        <item>Schweppes</item>
+        <item>Barbican</item>
+        <item>Red bull</item>
+        <item>Sprite</item>
+        <item>Coke zero</item>
+        <item>Coke</item>
+        <item>Pepsi diet</item>
+        <item>Juhanya fruit juice</item>
+        <item>7up diet</item>
+        <item>sprite zero</item>
+        <item>7up diet</item>
+        <item>Beril</item>
+        <item>Juhayna mix</item>
+    </string-array>
+
+    <string-array name="item_misc_string_array">
+        <item>Honey</item>
+        <item>Milk Cream</item>
+        <item>Chocolate</item>
+        <item>Milk</item>
+        <item>Nuts</item>
+        <item>Sugar</item>
+        <item>Cheese</item>
+        <item>Fine foods (or similar)</item>
+        <item>Sauce</item>
+        <item>Ice cream</item>
+    </string-array>
+    <string-array name="item_chocolate_kind_string_array">
+        <item>Kit kat</item>
+        <item>Snickers</item>
+        <item>Bounty</item>
+        <item>Cadbury</item>
+        <item>Galaxy</item>
+    </string-array>
+    <string-array name="item_milk_kind_string_array">
+        <item>Full cream</item>
+        <item>half-half</item>
+        <item>Skimmed</item>
+    </string-array>
+    <string-array name="item_nuts_kind_string_array">
+        <item>almonds</item>
+        <item>Walnuts</item>
+        <item>cashews</item>
+        <item>peanuts</item>
+        <item>pine nuts</item>
+        <item>flax seeds</item>
+        <item>Chia seeds</item>
+        <item>pumpkin seeds</item>
+    </string-array>
+    <string-array name="item_cheese_kind_string_array">
+        <item>Cottage</item>
+        <item>Fetta</item>
+        <item>Gouda</item>
+        <item>Parmesan</item>
+        <item>Swiss</item>
+        <item>Kerri</item>
+        <item>La vach qui rie</item>
+        <item>Rumi</item>
+        <item>Istanboli</item>
+        <item>Barameely</item>
+        <item>Mozarella</item>
+        <item>Blue</item>
+    </string-array>
+    <string-array name="item_sauce_kind_string_array">
+        <item>Soy</item>
+        <item>tartar</item>
+        <item>barbeque</item>
+        <item>Tehini</item>
+        <item>Mushrom White</item>
+        <item>Tomia</item>
+        <item>Blue cheese</item>
+        <item>Cheddar cheese</item>
+        <item>Ranch</item>
+        <item>southern island</item>
+        <item>ceaser</item>
+        <item>Mushrom Brown</item>
+    </string-array>
+    <string name="title_activity_nutrition">NutritionActivity</string>
+</resources>
