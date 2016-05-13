@@ -37,6 +37,7 @@ public class ListMenuItemAdapter extends ArrayAdapter<String> {
 
         if (plate != null) {
             TextView tt1 = (TextView) v.findViewById(R.id.menu_item_text_view);
+            tt1.setTextSize(20);
 
             if (tt1 != null) {
                 tt1.setText(plate);

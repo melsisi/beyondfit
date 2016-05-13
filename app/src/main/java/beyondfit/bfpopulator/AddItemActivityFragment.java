@@ -34,8 +34,6 @@ public class AddItemActivityFragment extends Fragment {
         itemLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Snackbar.make(rootView, "[Unimplemented] Moves to meat details.", Snackbar.LENGTH_LONG)
-                //       .setAction("Action", null).show();
                 goToItemSelectedActivity("meat", rootView);
             }
         });
@@ -116,13 +114,18 @@ public class AddItemActivityFragment extends Fragment {
     }
 
     private void goToItemSelectedActivity(String item, View rootView) {
+        String plateName = ((EditText) rootView.findViewById(R.id.item_name_text)).getText().toString();
+        if(plateName.length() == 0) {
+            Snackbar.make(rootView, "Plate name can't be empty!", Snackbar.LENGTH_LONG)
+                   .setAction("Action", null).show();
+            return;
+        }
         Intent intent;
         if(item.equals("meat") || item.equals("carbs") || item.equals("misc"))
             intent = new Intent(rootView.getContext(), ItemSelectedActivity.class);
         else
             intent = new Intent(rootView.getContext(), ItemDetailActivity.class);
         intent.putExtra("item", item);
-        String plateName = ((EditText) rootView.findViewById(R.id.item_name_text)).getText().toString();
         intent.putExtra("name", plateName);
         startActivity(intent);
     }

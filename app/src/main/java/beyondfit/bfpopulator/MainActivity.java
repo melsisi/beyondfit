@@ -1,5 +1,7 @@
 package beyondfit.bfpopulator;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -25,8 +27,27 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 //       .setAction("Action", null).show();
-                Intent intent = new Intent(view.getContext(), AddItemActivity.class);
-                startActivity(intent);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+                builder.setMessage("Ad nutrition or raw data?")
+                        .setTitle("Nutrition available");
+
+                builder.setPositiveButton("Have nutrition facts", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(MainActivity.this, NutritionActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                builder.setNegativeButton("Enter raw data", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(MainActivity.this, AddItemActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
     }
