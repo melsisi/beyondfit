@@ -21,6 +21,8 @@ public class NutritionActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setTitle("Add Nutrition Facts");
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.save_nutrition_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

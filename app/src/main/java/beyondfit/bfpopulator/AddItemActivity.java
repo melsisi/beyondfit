@@ -17,6 +17,8 @@ public class AddItemActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setTitle("Add Plate");
     }
 
 }
