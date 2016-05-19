@@ -12,6 +12,13 @@ class DynamoDBManagerTask extends
             DynamoDBManagerType... types) {
 
         RawMenuItem toReturn = new RawMenuItem();
+
+        if (types[0] == DynamoDBManagerType.GET_BUSINESS_NAME) {
+            //TODO: Check table status
+            toReturn = DynamoDBManager.getBusinessName();
+            return toReturn;
+        }
+
         String tableStatus = DynamoDBManager.getTestTableStatus();
 
         if (types[0] == DynamoDBManagerType.GET_TABLE_STATUS) {
@@ -22,7 +29,7 @@ class DynamoDBManagerTask extends
             }
         } else if (types[0] == DynamoDBManagerType.GET_MENU) {
             if (tableStatus.equals("ACTIVE")) {
-                toReturn = DynamoDBManager.getMenuForRestaurant("Test Restaurant");
+                toReturn = DynamoDBManager.getMenuForRestaurant();
             }
         }
 

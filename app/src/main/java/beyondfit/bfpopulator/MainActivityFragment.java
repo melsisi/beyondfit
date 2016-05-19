@@ -1,5 +1,7 @@
 package beyondfit.bfpopulator;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,8 +22,6 @@ import java.util.concurrent.ExecutionException;
  */
 public class MainActivityFragment extends Fragment {
 
-    public static AmazonClientManager clientManager = null;
-
     public MainActivityFragment() {
     }
 
@@ -30,8 +30,6 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-
-        clientManager = new AmazonClientManager(rootView.getContext());
 
         RawMenuItem tempRawMenuItem = null;
         try {
@@ -43,7 +41,7 @@ public class MainActivityFragment extends Fragment {
             e.printStackTrace();
         }
 
-        if(tempRawMenuItem.getMenu() != null) {
+        if(tempRawMenuItem != null && tempRawMenuItem.getMenu() != null) {
             try {
                 Globals.getInstance().setBusinessMenu(Serializer.deserialize(tempRawMenuItem.getMenu()));
             } catch (IOException e) {
