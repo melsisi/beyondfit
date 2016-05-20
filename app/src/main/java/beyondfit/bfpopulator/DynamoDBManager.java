@@ -109,7 +109,10 @@ public class DynamoDBManager {
                     Globals.getInstance().getBusinessID());
 
             RawMenuItem toReturn = new RawMenuItem();
-            toReturn.setName(businessID.getName());
+            if(businessID != null &&
+                    businessID.getName() != null &&
+                    businessID.getName().length() > 0)
+                toReturn.setName(businessID.getName());
             return toReturn;
 
         } catch (AmazonServiceException ex) {
