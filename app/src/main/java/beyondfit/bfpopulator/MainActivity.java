@@ -35,16 +35,16 @@ public class MainActivity extends AppCompatActivity {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-                builder.setMessage("Ad nutrition or raw data?")
-                        .setTitle("Nutrition available");
+                builder.setMessage("Add nutrition facts, or raw plate items (we'll do the math) ?")
+                        .setTitle("Type of input");
 
-                builder.setPositiveButton("Have nutrition facts", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Nutrition facts", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Intent intent = new Intent(MainActivity.this, NutritionActivity.class);
                         startActivity(intent);
                     }
                 });
-                builder.setNegativeButton("Enter raw data", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Plate items", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Intent intent = new Intent(MainActivity.this, AddItemActivity.class);
                         startActivity(intent);
