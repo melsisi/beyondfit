@@ -2,8 +2,6 @@ package beyondfit.bfpopulator;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by melsisi on 4/19/2016.

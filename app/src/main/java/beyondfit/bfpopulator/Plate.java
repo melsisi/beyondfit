@@ -2,7 +2,6 @@ package beyondfit.bfpopulator;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by melsisi on 4/25/2016.
@@ -10,6 +9,8 @@ import java.util.List;
 public class Plate implements Serializable {
 
     private ArrayList<PlateItem> plateItems;
+
+    private ArrayList<Integer> dietaryRequirements;
 
     public Plate() {
         plateItems = new ArrayList<>();
@@ -21,6 +22,14 @@ public class Plate implements Serializable {
 
     public void setPlateItems(ArrayList<PlateItem> plateItems) {
         this.plateItems = plateItems;
+    }
+
+    public ArrayList<Integer> getDietaryRequirements() {
+        return dietaryRequirements;
+    }
+
+    public void setDietaryRequirements(ArrayList<Integer> dietaryRequirements) {
+        this.dietaryRequirements = dietaryRequirements;
     }
 
 }

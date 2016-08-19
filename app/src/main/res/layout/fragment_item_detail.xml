@@ -48,23 +48,27 @@
             android:id="@+id/radio_button_linear_layout"
             android:visibility="gone">
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/left_radio_button"
-                android:visibility="gone"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/left_radio_button"
+                    android:visibility="gone"/>
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/middle_radio_button"
-                android:visibility="gone"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/middle_radio_button"
+                    android:visibility="gone"/>
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/right_radio_button"
-                android:visibility="gone"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/right_radio_button"
+                    android:visibility="gone"/>
+            </RadioGroup>
 
         </LinearLayout>
 

@@ -1,8 +1,6 @@
 package beyondfit.bfpopulator;
 
-import android.view.Menu;
-
-import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapperConfig;
+import java.util.ArrayList;
 
 /**
  * Created by melsisi on 4/19/2016.
@@ -15,6 +13,8 @@ public class Globals {
     private String businessName;
 
     private String businessID;
+
+    private ArrayList<Integer> dietaryRequirements;
 
     public static Globals getInstance() {
         if(instance==null)
@@ -42,4 +42,12 @@ public class Globals {
     public String getBusinessID() { return businessID; }
 
     public void setBusinessID(String businessID) { this.businessID = businessID; }
+
+    public ArrayList<Integer> getDietaryRequirements() {
+        return dietaryRequirements;
+    }
+
+    public void setDietaryRequirements(ArrayList<Integer> dietaryRequirements) {
+        this.dietaryRequirements = dietaryRequirements;
+    }
 }

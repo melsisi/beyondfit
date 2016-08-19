@@ -40,7 +40,7 @@ public class SplashActivity extends AppCompatActivity {
                 progress.setTitle("Loading");
                 progress.setMessage("Wait while loading...");
                 progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                progress.show();
+                //progress.show();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(SplashActivity.this);
 

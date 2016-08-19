@@ -357,6 +357,10 @@ public class ItemDetailActivityFragment extends Fragment {
                 else
                     thisPlate = plates.get(itemName);
 
+                if(thisPlate.getDietaryRequirements() == null ||
+                        ( thisPlate.getDietaryRequirements() != null && thisPlate.getDietaryRequirements().isEmpty()))
+                    thisPlate.setDietaryRequirements(Globals.getInstance().getDietaryRequirements());
+
                 List<PlateItem> thisPlateItems = thisPlate.getPlateItems();
 
                 thisPlateItems.add(newPlateItem);

@@ -22,7 +22,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="beyondfit.bfpopulator.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".ItemSelectedActivity"
@@ -31,7 +31,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="beyondfit.bfpopulator.AddItemActivity" />
+                android:value=".AddItemActivity" />
         </activity>
         <activity
             android:name=".ItemDetailActivity"
@@ -40,7 +40,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="beyondfit.bfpopulator.ItemSelectedActivity" />
+                android:value=".ItemSelectedActivity" />
         </activity>
         <activity
             android:name=".NutritionActivity"

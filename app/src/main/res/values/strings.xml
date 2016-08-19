@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BF Populator</string>
+    <string name="app_name">Nutrima</string>
     <string name="action_settings">Settings</string>
     <string name="empty_textview_text">Nothing to show!</string>
     <string name="title_activity_add_item">Select Item</string>
@@ -116,6 +116,7 @@
         <item>Potatoes</item>
         <item>Corn</item>
         <item>Oats</item>
+        <item>Other</item>
     </string-array>
     <string-array name="item_wheat_kind_string_array">
         <item>White Bread</item>
@@ -169,6 +170,7 @@
         <item>green leaves</item>
         <item>Olives</item>
         <item>Mushrooms</item>
+        <item>Other</item>
     </string-array>
 
     <string-array name="item_fruits_kind_string_array">
@@ -186,6 +188,7 @@
         <item>Orange</item>
         <item>Tangerine</item>
         <item>Dates</item>
+        <item>Other</item>
     </string-array>
 
     <string-array name="item_oils_kind_string_array">
@@ -197,6 +200,7 @@
         <item>Butter</item>
         <item>Ghee</item>
         <item>Canola</item>
+        <item>Other</item>
     </string-array>
 
     <string-array name="item_legumes_kind_string_array">
@@ -207,6 +211,7 @@
         <item>Red beans</item>
         <item>Peas</item>
         <item>Peanuts</item>
+        <item>Other</item>
     </string-array>
 
     <string-array name="item_soup_kind_string_array">
@@ -254,6 +259,8 @@
         <item>Bounty</item>
         <item>Cadbury</item>
         <item>Galaxy</item>
+        <item>Raw</item>
+        <item>Other</item>
     </string-array>
     <string-array name="item_milk_kind_string_array">
         <item>Full cream</item>
@@ -269,6 +276,7 @@
         <item>flax seeds</item>
         <item>Chia seeds</item>
         <item>pumpkin seeds</item>
+        <item>Other</item>
     </string-array>
     <string-array name="item_cheese_kind_string_array">
         <item>Cottage</item>
@@ -283,6 +291,7 @@
         <item>Barameely</item>
         <item>Mozarella</item>
         <item>Blue</item>
+        <item>Other</item>
     </string-array>
     <string-array name="item_sauce_kind_string_array">
         <item>Soy</item>
@@ -297,6 +306,21 @@
         <item>southern island</item>
         <item>ceaser</item>
         <item>Mushrom Brown</item>
+        <item>Other</item>
     </string-array>
     <string name="title_activity_nutrition">NutritionActivity</string>
+
+    <string-array name="plate_contains_array">
+        <item>Gluten</item>
+        <item>Dairy</item>
+        <item>Refined Sugar</item>
+        <item>Nuts</item>
+        <item>Artificial additives</item>
+        <item>Soy</item>
+        <item>Legumes</item>
+        <item>Spicy level - high</item>
+        <item>Spicy level - medium</item>
+        <item>Spicy level - mild</item>
+        <item>Spicy level - none</item>
+    </string-array>
 </resources>
