@@ -7,7 +7,7 @@ import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBTable;
 /**
  * Created by melsisi on 4/26/2016.
  */
-@DynamoDBTable(tableName = "RestaurantsIDs")
+@DynamoDBTable(tableName = "RestaurantsID2")
 public class RestaurantsIDs {
     private String id;
     private String name;

@@ -9,7 +9,7 @@
     <string name="identity_pool">eu-west-1:bf1771fa-c87a-4133-b6d1-47bf07ef2b60</string>
     <string name="raw_menu_items_table">RawMenuItems</string>
 
-    <string name="business_names_table">RestaurantsIDs</string>
+    <string name="business_names_table">RestaurantsID2</string>
 
     <string-array name="item_meat_string_array">
         <item>Poultry</item>

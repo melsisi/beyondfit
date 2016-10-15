@@ -27,6 +27,7 @@ public class PlateItem implements Serializable{
     private double fatTrans;
     private int Calories;
     private int GL;
+    private double salt;
 
     public PlateItem() {
     }
@@ -199,4 +200,11 @@ public class PlateItem implements Serializable{
         this.GL = GL;
     }
 
+    public double getSalt() {
+        return salt;
+    }
+
+    public void setSalt(double salt) {
+        this.salt = salt;
+    }
 }

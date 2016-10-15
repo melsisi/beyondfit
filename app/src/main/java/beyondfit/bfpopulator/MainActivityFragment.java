@@ -103,6 +103,10 @@ public class MainActivityFragment extends Fragment {
                         // Creating peek form view
                         View tempView = rootView.inflate(rootView.getContext(), R.layout.plate_peek, null);
                         // Populating peek form
+                        ((EditText) tempView.findViewById(R.id.category_edit_text)).
+                                setText(item.getMainCategory());
+                        ((EditText) tempView.findViewById(R.id.subcategory_edit_text)).
+                                setText(item.getSubCategory());
                         ((EditText) tempView.findViewById(R.id.kind_edit_text)).
                                 setText(item.getKind());
                         ((EditText) tempView.findViewById(R.id.meat_percent_textbox)).
@@ -141,6 +145,8 @@ public class MainActivityFragment extends Fragment {
                                 setText(String.valueOf(item.getCalories()));
                         ((EditText) tempView.findViewById(R.id.gl_text_box)).
                                 setText(String.valueOf(item.getGL()));
+                        ((EditText) tempView.findViewById(R.id.salt_text_box)).
+                                setText(String.valueOf(item.getSalt()));
                         layout.addView(tempView);
 
                         // Creating separator view

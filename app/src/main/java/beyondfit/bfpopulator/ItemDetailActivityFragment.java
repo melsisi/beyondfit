@@ -288,8 +288,10 @@ public class ItemDetailActivityFragment extends Fragment {
 
                 /*******/
 
-                newPlateItem.setKind(((Spinner) getActivity().findViewById(R.id.item_kind_spinner))
-                        .getSelectedItem().toString());
+                if(showKindSpinner) {
+                    newPlateItem.setKind(((Spinner) getActivity().findViewById(R.id.item_kind_spinner))
+                            .getSelectedItem().toString());
+                }
 
                 /*******/
 
@@ -336,11 +338,21 @@ public class ItemDetailActivityFragment extends Fragment {
 
                 /*******/
 
-                String cookingTypeString = ((Spinner) getActivity().findViewById(R.id.item_cooking_style_spinner))
-                        .getSelectedItem().toString();
-                if(cookingTypeString!=null && cookingTypeString.length() > 0)
-                    newPlateItem.setCookingType(cookingTypeString);
+                if(showCookingStyleSpinner) {
+                    String cookingTypeString = ((Spinner) getActivity().findViewById(R.id.item_cooking_style_spinner))
+                            .getSelectedItem().toString();
+                    if (cookingTypeString != null && cookingTypeString.length() > 0)
+                        newPlateItem.setCookingType(cookingTypeString);
+                }
 
+                /*******/
+
+                String saltString = ((EditText) getActivity().findViewById(R.id.salt_textbox))
+                        .getText().toString();
+                if(saltString.length() > 0) {
+                    double salt = Double.parseDouble(saltString);
+                    newPlateItem.setSalt(salt);
+                }
                 /*******/
 
                 newPlateItem.setComments(((EditText) getActivity().findViewById(R.id.comments_textbox))
