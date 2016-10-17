@@ -466,6 +466,22 @@
                 android:enabled="false" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diet Reqs"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/diet_text_box"
+                android:enabled="false" />
+        </LinearLayout>
     </LinearLayout>
 
 <!--/ScrollView-->

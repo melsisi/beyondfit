@@ -10,7 +10,7 @@ public class Plate implements Serializable {
 
     private ArrayList<PlateItem> plateItems;
 
-    private ArrayList<Integer> dietaryRequirements;
+    private ArrayList<String> dietaryRequirements;
 
     public Plate() {
         plateItems = new ArrayList<>();
@@ -24,11 +24,11 @@ public class Plate implements Serializable {
         this.plateItems = plateItems;
     }
 
-    public ArrayList<Integer> getDietaryRequirements() {
+    public ArrayList<String> getDietaryRequirements() {
         return dietaryRequirements;
     }
 
-    public void setDietaryRequirements(ArrayList<Integer> dietaryRequirements) {
+    public void setDietaryRequirements(ArrayList<String> dietaryRequirements) {
         this.dietaryRequirements = dietaryRequirements;
     }
 

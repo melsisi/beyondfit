@@ -122,8 +122,15 @@ public class AddItemActivityFragment extends Fragment {
 
     private void proceed(final String item, final View rootView) {
 
+        String plateName = ((EditText) rootView.findViewById(R.id.item_name_text)).getText().toString();
+        if(plateName.length() == 0) {
+            Snackbar.make(rootView, "Plate name can't be empty!", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+            return;
+        }
+
         if(!plateExists) {
-            final ArrayList<Integer> mSelectedItems = new ArrayList();  // Where we track the selected items
+            final ArrayList<String> mSelectedItems = new ArrayList();  // Where we track the selected items
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             // Set the dialog title
             builder.setTitle("Dietary requirements")
@@ -136,7 +143,8 @@ public class AddItemActivityFragment extends Fragment {
                                                     boolean isChecked) {
                                     if (isChecked) {
                                         // If the user checked the item, add it to the selected items
-                                        mSelectedItems.add(which);
+                                        mSelectedItems.add(
+                                                getResources().getStringArray(R.array.plate_contains_array)[which]);
                                     } else if (mSelectedItems.contains(which)) {
                                         // Else, if the item is already in the array, remove it
                                         mSelectedItems.remove(Integer.valueOf(which));
@@ -166,11 +174,7 @@ public class AddItemActivityFragment extends Fragment {
 
     private void goToItemSelectedActivity(String item, View rootView) {
         String plateName = ((EditText) rootView.findViewById(R.id.item_name_text)).getText().toString();
-        if(plateName.length() == 0) {
-            Snackbar.make(rootView, "Plate name can't be empty!", Snackbar.LENGTH_LONG)
-                   .setAction("Action", null).show();
-            return;
-        }
+
         Intent intent;
         if(item.equals("meat") || item.equals("carbs") || item.equals("misc"))
             intent = new Intent(rootView.getContext(), ItemSelectedActivity.class);

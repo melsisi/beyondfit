@@ -1,5 +1,7 @@
 package beyondfit.bfpopulator;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +25,40 @@ public class NutritionActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setTitle("Add Nutrition Facts");
+
+        final ArrayList<String> mSelectedItems = new ArrayList();  // Where we track the selected items
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        // Set the dialog title
+        builder.setTitle("Dietary requirements")
+                // Specify the list array, the items to be selected by default (null for none),
+                // and the listener through which to receive callbacks when items are selected
+                .setMultiChoiceItems(R.array.plate_contains_array, null,
+                        new DialogInterface.OnMultiChoiceClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which,
+                                                boolean isChecked) {
+                                if (isChecked) {
+                                    // If the user checked the item, add it to the selected items
+                                    mSelectedItems.add(
+                                            getResources().getStringArray(R.array.plate_contains_array)[which]);
+                                } else if (mSelectedItems.contains(which)) {
+                                    // Else, if the item is already in the array, remove it
+                                    mSelectedItems.remove(Integer.valueOf(which));
+                                }
+                            }
+                        })
+                // Set the action buttons
+                .setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        Globals.getInstance().setDietaryRequirements(mSelectedItems);
+                    }
+                });
+
+        // Create the AlertDialog object and return it
+        final AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.show();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.save_nutrition_fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +134,11 @@ public class NutritionActivity extends AppCompatActivity {
                 if(glString.length() > 0)
                     newPlateItem.setGL(Integer.parseInt(glString));
 
+                String sodiumString = ((EditText) findViewById(R.id.sodium_text_box))
+                        .getText().toString();
+                if(sodiumString.length() > 0)
+                    newPlateItem.setSalt(Integer.parseInt(sodiumString));
+
                 Plate thisPlate;
 
                 if(plates != null && !plates.containsKey(plateNameString)) {
@@ -105,6 +147,9 @@ public class NutritionActivity extends AppCompatActivity {
                 }
                 else
                     thisPlate = plates.get(plateNameString);
+
+
+                thisPlate.setDietaryRequirements(Globals.getInstance().getDietaryRequirements());
 
                 List<PlateItem> thisPlateItems = thisPlate.getPlateItems();
 

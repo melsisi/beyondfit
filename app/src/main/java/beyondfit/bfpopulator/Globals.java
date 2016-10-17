@@ -14,7 +14,7 @@ public class Globals {
 
     private String businessID;
 
-    private ArrayList<Integer> dietaryRequirements;
+    private ArrayList<String> dietaryRequirements;
 
     public static Globals getInstance() {
         if(instance==null)
@@ -43,11 +43,11 @@ public class Globals {
 
     public void setBusinessID(String businessID) { this.businessID = businessID; }
 
-    public ArrayList<Integer> getDietaryRequirements() {
+    public ArrayList<String> getDietaryRequirements() {
         return dietaryRequirements;
     }
 
-    public void setDietaryRequirements(ArrayList<Integer> dietaryRequirements) {
+    public void setDietaryRequirements(ArrayList<String> dietaryRequirements) {
         this.dietaryRequirements = dietaryRequirements;
     }
 }

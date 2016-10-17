@@ -147,6 +147,8 @@ public class MainActivityFragment extends Fragment {
                                 setText(String.valueOf(item.getGL()));
                         ((EditText) tempView.findViewById(R.id.salt_text_box)).
                                 setText(String.valueOf(item.getSalt()));
+                        ((EditText) tempView.findViewById(R.id.diet_text_box)).
+                                setText(String.valueOf(thisPlate.getDietaryRequirements()));
                         layout.addView(tempView);
 
                         // Creating separator view
