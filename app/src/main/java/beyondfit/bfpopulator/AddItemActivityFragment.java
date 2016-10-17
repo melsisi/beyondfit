@@ -184,4 +184,6 @@ public class AddItemActivityFragment extends Fragment {
         intent.putExtra("name", plateName);
         startActivity(intent);
     }
+
+
 }
