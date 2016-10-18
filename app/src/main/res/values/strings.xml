@@ -239,6 +239,7 @@
         <item>7up diet</item>
         <item>Beril</item>
         <item>Juhayna mix</item>
+        <item>Other</item>
     </string-array>
 
     <string-array name="item_misc_string_array">
@@ -252,6 +253,7 @@
         <item>Fine foods (or similar)</item>
         <item>Sauce</item>
         <item>Ice cream</item>
+        <item>Other</item>
     </string-array>
     <string-array name="item_chocolate_kind_string_array">
         <item>Kit kat</item>
@@ -313,14 +315,20 @@
     <string-array name="plate_contains_array">
         <item>Gluten</item>
         <item>Dairy</item>
-        <item>Refined Sugar</item>
+        <item>Eggs</item>
+        <item>Fish</item>
         <item>Nuts</item>
-        <item>Artificial additives</item>
-        <item>Soy</item>
+        <item>Peanuts</item>
+        <item>Beans</item>
         <item>Legumes</item>
-        <item>Spicy level - high</item>
-        <item>Spicy level - medium</item>
-        <item>Spicy level - mild</item>
+        <item>Soy</item>
+        <item>Refined Sugar</item>
+        <item>Artificial additives</item>
+    </string-array>
+    <string-array name="spicy_level">
         <item>Spicy level - none</item>
+        <item>Spicy level - mild</item>
+        <item>Spicy level - medium</item>
+        <item>Spicy level - high</item>
     </string-array>
 </resources>

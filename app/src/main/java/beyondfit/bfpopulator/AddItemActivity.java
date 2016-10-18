@@ -1,6 +1,5 @@
 package beyondfit.bfpopulator;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -19,7 +18,7 @@ public class AddItemActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getSupportActionBar().setTitle("Add Plate");
+        getSupportActionBar().setTitle("Add Menu Item");
     }
 
     @Override
@@ -29,6 +28,12 @@ public class AddItemActivity extends AppCompatActivity {
         builder.setTitle("Discarding")
                 .setMessage("Nothing has been saved at this point. Discarding inputs.")
                 // Set the action buttons
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                })
                 .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
@@ -38,7 +43,7 @@ public class AddItemActivity extends AppCompatActivity {
 
         // Create the AlertDialog object and return it
         final AlertDialog dialog = builder.create();
-        dialog.setCancelable(false);
+        //dialog.setCancelable(false);
         dialog.show();
     }
 
@@ -52,6 +57,12 @@ public class AddItemActivity extends AppCompatActivity {
                 builder.setTitle("Discarding")
                         .setMessage("Nothing has been saved at this point. Discarding inputs.")
                         // Set the action buttons
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                            }
+                        })
                         .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int id) {
@@ -61,7 +72,7 @@ public class AddItemActivity extends AppCompatActivity {
 
                 // Create the AlertDialog object and return it
                 final AlertDialog dialog = builder.create();
-                dialog.setCancelable(false);
+                //dialog.setCancelable(false);
                 dialog.show();
                 return true;
         }

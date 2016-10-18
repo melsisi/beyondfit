@@ -26,58 +26,30 @@ public class NutritionActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Add Nutrition Facts");
 
-        final ArrayList<String> mSelectedItems = new ArrayList();  // Where we track the selected items
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        // Set the dialog title
-        builder.setTitle("Dietary requirements")
-                // Specify the list array, the items to be selected by default (null for none),
-                // and the listener through which to receive callbacks when items are selected
-                .setMultiChoiceItems(R.array.plate_contains_array, null,
-                        new DialogInterface.OnMultiChoiceClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which,
-                                                boolean isChecked) {
-                                if (isChecked) {
-                                    // If the user checked the item, add it to the selected items
-                                    mSelectedItems.add(
-                                            getResources().getStringArray(R.array.plate_contains_array)[which]);
-                                } else if (mSelectedItems.contains(which)) {
-                                    // Else, if the item is already in the array, remove it
-                                    mSelectedItems.remove(Integer.valueOf(which));
-                                }
-                            }
-                        })
-                // Set the action buttons
-                .setPositiveButton("Done", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        Globals.getInstance().setDietaryRequirements(mSelectedItems);
-                    }
-                });
 
-        // Create the AlertDialog object and return it
-        final AlertDialog dialog = builder.create();
-        dialog.setCancelable(false);
-        dialog.show();
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.save_nutrition_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 String plateNameString = ((EditText) findViewById(R.id.plate_name_text_box))
                         .getText().toString();
                 if(plateNameString.length() == 0) {
                     Snackbar.make(view, "Plate name can't be empty!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                     return;
+                } else {
+                    //TODO: Check plate name does not exist before saving
+
                 }
 
-                Globals g = Globals.getInstance();
-                BusinessMenu bM = g.getBusinessMenu();
+                final Globals g = Globals.getInstance();
+                final BusinessMenu bM = g.getBusinessMenu();
 
                 Map<String, Plate> plates = bM.getPlates();
 
-                PlateItem newPlateItem = new PlateItem();
+                final PlateItem newPlateItem = new PlateItem();
 
                 String caloriesString = ((EditText) findViewById(R.id.calories_text_box))
                         .getText().toString();
@@ -139,7 +111,7 @@ public class NutritionActivity extends AppCompatActivity {
                 if(sodiumString.length() > 0)
                     newPlateItem.setSalt(Integer.parseInt(sodiumString));
 
-                Plate thisPlate;
+                final Plate thisPlate;
 
                 if(plates != null && !plates.containsKey(plateNameString)) {
                     thisPlate = new Plate();
@@ -149,19 +121,93 @@ public class NutritionActivity extends AppCompatActivity {
                     thisPlate = plates.get(plateNameString);
 
 
-                thisPlate.setDietaryRequirements(Globals.getInstance().getDietaryRequirements());
 
-                List<PlateItem> thisPlateItems = thisPlate.getPlateItems();
 
-                thisPlateItems.add(newPlateItem);
+                final ArrayList<String> mSelectedItems = new ArrayList();  // Where we track the selected items
+                final String[] spicyLevel = new String[1];
 
-                g.setBusinessMenu(bM);
+                //Multiple Choice
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(view.getContext());
+                // Set the dialog title
+                builder1.setTitle("This menu item contains \n (Check ALL that apply!)")
+                        // Specify the list array, the items to be selected by default (null for none),
+                        // and the listener through which to receive callbacks when items are selected
+                        .setMultiChoiceItems(R.array.plate_contains_array, null,
+                                new DialogInterface.OnMultiChoiceClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which,
+                                                        boolean isChecked) {
+                                        if (isChecked) {
+                                            // If the user checked the item, add it to the selected items
+                                            mSelectedItems.add(
+                                                    getResources().getStringArray(R.array.plate_contains_array)[which]);
+                                        } else if (mSelectedItems.contains(which)) {
+                                            // Else, if the item is already in the array, remove it
+                                            mSelectedItems.remove(Integer.valueOf(which));
+                                        }
+                                    }
+                                })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                            }
+                        })
+                            // Set the action buttons
+                        .setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                mSelectedItems.add(spicyLevel[0]);
+                                Globals.getInstance().setDietaryRequirements(mSelectedItems);
+                                thisPlate.setDietaryRequirements(Globals.getInstance().getDietaryRequirements());
+                                List<PlateItem> thisPlateItems = thisPlate.getPlateItems();
 
-                new DynamoDBManagerTask()
-                        .execute(DynamoDBManagerType.INSERT_ITEM);
+                                thisPlateItems.add(newPlateItem);
 
-                Intent intent = new Intent(view.getContext(), MainActivity.class);
-                startActivity(intent);
+                                g.setBusinessMenu(bM);
+                                new DynamoDBManagerTask()
+                                        .execute(DynamoDBManagerType.INSERT_ITEM);
+
+                                Intent intent = new Intent(view.getContext(), MainActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+
+                // Create the AlertDialog object and return it
+                final AlertDialog dialog1 = builder1.create();
+                dialog1.setCancelable(false);
+                dialog1.show();
+
+
+                //Single Choice
+
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(view.getContext());
+                // Set the dialog title
+                builder2.setTitle("Spicy Level")
+                        // Specify the list array, the items to be selected by default (null for none),
+                        // and the listener through which to receive callbacks when items are selected
+                        .setSingleChoiceItems (R.array.spicy_level, 0,
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        //mSelectedItems.add(
+                                        //        getResources().getStringArray(R.array.spicy_level)[i]);
+                                        spicyLevel[0] = getResources().getStringArray(R.array.spicy_level)[i];
+                                    }
+                                })
+                        // Set the action buttons
+                        .setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                //Globals.getInstance().setDietaryRequirements(mSelectedItems);
+                                dialog.dismiss();
+                            }
+                        });
+
+                // Create the AlertDialog object and return it
+                final AlertDialog dialog2 = builder2.create();
+                dialog2.setCancelable(false);
+                dialog2.show();
             }
         });
 

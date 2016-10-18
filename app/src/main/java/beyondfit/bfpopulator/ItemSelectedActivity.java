@@ -15,7 +15,9 @@ public class ItemSelectedActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getSupportActionBar().setTitle("Add Plate Item");
+        //getSupportActionBar().setTitle("Add Menu Item");
+        Bundle bundle = getIntent().getExtras();
+        getSupportActionBar().setTitle("Add "+ bundle.getString("item"));
     }
 
 }

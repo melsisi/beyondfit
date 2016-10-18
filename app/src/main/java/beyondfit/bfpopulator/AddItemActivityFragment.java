@@ -41,7 +41,7 @@ public class AddItemActivityFragment extends Fragment {
         itemLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                proceed("meat", rootView);
+                proceed("Animal Protein", rootView);
             }
         });
 
@@ -124,7 +124,7 @@ public class AddItemActivityFragment extends Fragment {
 
         String plateName = ((EditText) rootView.findViewById(R.id.item_name_text)).getText().toString();
         if(plateName.length() == 0) {
-            Snackbar.make(rootView, "Plate name can't be empty!", Snackbar.LENGTH_LONG)
+            Snackbar.make(rootView, "Menu Item name can't be empty!", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             return;
         }
@@ -133,7 +133,7 @@ public class AddItemActivityFragment extends Fragment {
             final ArrayList<String> mSelectedItems = new ArrayList();  // Where we track the selected items
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             // Set the dialog title
-            builder.setTitle("Dietary requirements")
+            builder.setTitle("Menu item contains (Check ALL that apply):")
                     // Specify the list array, the items to be selected by default (null for none),
                     // and the listener through which to receive callbacks when items are selected
                     .setMultiChoiceItems(R.array.plate_contains_array, null,
@@ -165,7 +165,7 @@ public class AddItemActivityFragment extends Fragment {
 
             // Create the AlertDialog object and return it
             final AlertDialog dialog = builder.create();
-            dialog.setCancelable(false);
+            //dialog.setCancelable(false);
             dialog.show();
         }
         else
@@ -176,7 +176,7 @@ public class AddItemActivityFragment extends Fragment {
         String plateName = ((EditText) rootView.findViewById(R.id.item_name_text)).getText().toString();
 
         Intent intent;
-        if(item.equals("meat") || item.equals("carbs") || item.equals("misc"))
+        if(item.equals("Animal Protein") || item.equals("carbs") || item.equals("misc"))
             intent = new Intent(rootView.getContext(), ItemSelectedActivity.class);
         else
             intent = new Intent(rootView.getContext(), ItemDetailActivity.class);
