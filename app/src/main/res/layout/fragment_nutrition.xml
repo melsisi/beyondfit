@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Plate Name"/>
+                android:text="Menu Item Name"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Protein"/>
+                android:text="Protein (gm)"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -58,7 +58,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Carbs"/>
+                android:text="Carbs (gm)"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -81,7 +81,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Starch"/>
+                    android:text="Starch (gm)"/>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -99,7 +99,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fiber"/>
+                    android:text="Fiber (gm)"/>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -117,7 +117,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sugar"/>
+                    android:text="Sugar (gm)"/>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -135,7 +135,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fats"/>
+                android:text="Fats (gm)"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -158,7 +158,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Saturated"/>
+                    android:text="Saturated (gm)"/>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -176,7 +176,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Unsaturated"/>
+                    android:text="Unsaturated (gm)"/>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -194,7 +194,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Trans"/>
+                android:text="Trans (gm)"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -212,7 +212,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Calories"/>
+                android:text="Calories (Kcal)"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -229,7 +229,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GL"/>
+                android:text="Glycemic Load"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -246,7 +246,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sodium"/>
+                android:text="Sodium (mg)"/>
 
             <EditText
                 android:layout_width="match_parent"

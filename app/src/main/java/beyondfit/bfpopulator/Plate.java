@@ -31,5 +31,4 @@ public class Plate implements Serializable {
     public void setDietaryRequirements(ArrayList<String> dietaryRequirements) {
         this.dietaryRequirements = dietaryRequirements;
     }
-
 }
