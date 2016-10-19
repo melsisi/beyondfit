@@ -43,7 +43,7 @@ public class ItemSelectedActivityFragment extends Fragment {
 
         List<String> itemDetailsArrayList = null;
 
-        if(message.equals("meat"))
+        if(message.equals("Animal Protein"))
             itemDetailsArrayList = new ArrayList<>(Arrays.asList(
                     getResources().getStringArray(R.array.item_meat_string_array)));
         else if(message.equals("carbs"))
