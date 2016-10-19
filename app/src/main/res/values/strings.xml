@@ -33,6 +33,7 @@
         <item>Legs</item>
         <item>Breast</item>
         <item>Liver</item>
+        <item>Other</item>
     </string-array>
     <string-array name="item_red_kind_string_array">
         <item>Beef</item>
@@ -55,6 +56,7 @@
         <item>Shank</item>
         <item>Flank</item>
         <item>Liver</item>
+        <item>Other</item>
     </string-array>
     <string-array name="item_fish_kind_string_array">
         <item>Tilapia/Porgy</item>
@@ -107,6 +109,7 @@
         <item>Boiled/Steamed</item>
         <item>Charbroiled/Baked</item>
         <item>Raw</item>
+        <item>Other</item>
     </string-array>
 
     <string-array name="item_carbs_string_array">
@@ -123,30 +126,36 @@
         <item>Whole grain Bread</item>
         <item>White Flour</item>
         <item>Whole grain Flour</item>
+        <item>Other</item>
     </string-array>
     <string-array name="item_rice_kind_string_array">
         <item>White (short grain)</item>
         <item>White (long grain/Basmati)</item>
         <item>Brown (short grain)</item>
         <item>Brown (long grain/Basmati)</item>
+        <item>Other</item>
     </string-array>
     <string-array name="item_pasta_kind_string_array">
         <item>white</item>
         <item>Whole grain</item>
+        <item>Other</item>
     </string-array>
     <string-array name="item_potatoes_kind_string_array">
         <item>White</item>
         <item>White w skin</item>
         <item>Sweet</item>
         <item>Sweet w skin</item>
+        <item>Other</item>
     </string-array>
     <string-array name="item_corn_kind_string_array">
         <item>White</item>
         <item>Yellow</item>
+        <item>Other</item>
     </string-array>
     <string-array name="item_oats_kind_string_array">
         <item>Quick</item>
         <item>Traditional</item>
+        <item>Other</item>
     </string-array>
 
     <string-array name="item_vegetables_kind_string_array">
@@ -221,6 +230,7 @@
         <item>From seafood</item>
         <item>Processed (fine foods)</item>
         <item>From Vegetables/Legumes</item>
+        <item>Other</item>
     </string-array>
 
     <string-array name="item_beverage_kind_string_array">
@@ -268,6 +278,7 @@
         <item>Full cream</item>
         <item>half-half</item>
         <item>Skimmed</item>
+        <item>Other</item>
     </string-array>
     <string-array name="item_nuts_kind_string_array">
         <item>almonds</item>
