@@ -1,5 +1,7 @@
 package beyondfit.bfpopulator;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -10,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import java.util.Map;
+
 /**
  * A placeholder fragment containing a simple view.
  */
@@ -19,6 +23,10 @@ public class AddItemActivityFragment extends Fragment {
 
     public AddItemActivityFragment() {
     }
+
+    final Globals g = Globals.getInstance();
+    final BusinessMenu bM = g.getBusinessMenu();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -125,6 +133,36 @@ public class AddItemActivityFragment extends Fragment {
             return;
         }
 
+        Map<String, Plate> plates = bM.getPlates();
+        if(plates != null && plates.containsKey(plateName) && !plateExists) {
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(rootView.getContext());
+            // Set the dialog title
+            builder1.setTitle("Menu item '" + plateName + "' already exists \nDo you want to append to it?")
+                    // Specify the list array, the items to be selected by default (null for none),
+                    // and the listener through which to receive callbacks when items are selected
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    })
+                    // Set the action buttons
+                    .setPositiveButton("Append", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            goToItemSelectedActivity(item, rootView);
+                        }
+                    });
+
+            // Create the AlertDialog object and return it
+            final AlertDialog dialog1 = builder1.create();
+            dialog1.setCancelable(false);
+            dialog1.show();
+        } else {
+            goToItemSelectedActivity(item, rootView);
+        }
+
+
         /*if(!plateExists) {
             final ArrayList<String> mSelectedItems = new ArrayList();  // Where we track the selected items
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -166,7 +204,7 @@ public class AddItemActivityFragment extends Fragment {
         }
         else //--x--
         */
-            goToItemSelectedActivity(item, rootView);
+            //goToItemSelectedActivity(item, rootView);
     }
 
     private void goToItemSelectedActivity(String item, View rootView) {
