@@ -1,18 +1,14 @@
 package beyondfit.bfpopulator;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-
-import java.util.ArrayList;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -129,7 +125,7 @@ public class AddItemActivityFragment extends Fragment {
             return;
         }
 
-        if(!plateExists) {
+        /*if(!plateExists) {
             final ArrayList<String> mSelectedItems = new ArrayList();  // Where we track the selected items
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             // Set the dialog title
@@ -168,7 +164,8 @@ public class AddItemActivityFragment extends Fragment {
             //dialog.setCancelable(false);
             dialog.show();
         }
-        else
+        else //--x--
+        */
             goToItemSelectedActivity(item, rootView);
     }
 

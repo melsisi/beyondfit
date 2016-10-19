@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -71,7 +72,7 @@ public class ItemDetailActivityFragment extends Fragment {
             leftRadioButtonText = "Whole (skin/bone)";
             middleRadioButtonText = "Boneless/skinless";
         }
-        else if(message.toLowerCase().equals("red")){
+        else if(message.toLowerCase().equals("red meat")){
             part_string_array_index = R.array.item_red_part_string_array;
             kind_string_array_index = R.array.item_red_kind_string_array;
             showCookingStyleSpinner = true;
@@ -260,14 +261,14 @@ public class ItemDetailActivityFragment extends Fragment {
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.commit_item_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
 
-                Globals g = Globals.getInstance();
-                BusinessMenu bM = g.getBusinessMenu();
+                final Globals g = Globals.getInstance();
+                final BusinessMenu bM = g.getBusinessMenu();
 
                 Map<String, Plate> plates = bM.getPlates();
 
-                PlateItem newPlateItem = new PlateItem();
+                final PlateItem newPlateItem = new PlateItem();
 
                 /*******/
 
@@ -325,6 +326,8 @@ public class ItemDetailActivityFragment extends Fragment {
                 if(quantityString.length() > 0) {
                     int quantity = Integer.parseInt(quantityString);
                     newPlateItem.setQuantity(quantity);
+                } else {
+                    newPlateItem.setQuantity(1); //--x--
                 }
 
                 /*******/
@@ -360,7 +363,7 @@ public class ItemDetailActivityFragment extends Fragment {
 
                 /*******/
 
-                Plate thisPlate;
+                final Plate thisPlate;
 
                 if(plates != null && !plates.containsKey(itemName)) {
                     thisPlate = new Plate();
@@ -394,11 +397,92 @@ public class ItemDetailActivityFragment extends Fragment {
                 builder.setNegativeButton("No, I'm done", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        new DynamoDBManagerTask()
-                                .execute(DynamoDBManagerType.INSERT_ITEM);
+                        //--x--
+                        //Multiple Choice
+                        final ArrayList<String> mSelectedItems = new ArrayList();
+                        final String[] spicyLevel = new String[1];
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(view.getContext());
+                        // Set the dialog title
+                        builder1.setTitle("This menu item contains\n(Check ALL that apply!)")
+                                // Specify the list array, the items to be selected by default (null for none),
+                                // and the listener through which to receive callbacks when items are selected
+                                .setMultiChoiceItems(R.array.plate_contains_array, null,
+                                        new DialogInterface.OnMultiChoiceClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which,
+                                                                boolean isChecked) {
+                                                if (isChecked) {
+                                                    // If the user checked the item, add it to the selected items
+                                                    mSelectedItems.add(
+                                                            getResources().getStringArray(R.array.plate_contains_array)[which]);
+                                                    //} else if (mSelectedItems.contains(which)) {
+                                                } else {
+                                                    // Else, if the item is already in the array, remove it
+                                                    mSelectedItems.remove(getResources().getStringArray(R.array.plate_contains_array)[which]);
+                                                    //mSelectedItems.remove(which);
+                                                }
+                                            }
+                                        })
+                                // Set the action buttons
+                                .setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        mSelectedItems.add(spicyLevel[0]);
+                                        Globals.getInstance().setDietaryRequirements(mSelectedItems);
+                                        thisPlate.setDietaryRequirements(Globals.getInstance().getDietaryRequirements());
+                                        //List<PlateItem> thisPlateItems = thisPlate.getPlateItems();
 
-                        Intent intent = new Intent(getContext(), MainActivity.class);
-                        startActivity(intent);
+                                        //thisPlateItems.add(newPlateItem);
+                                        //final Map<String, Plate> plates = bM.getPlates();
+
+                                        /*if(plates != null && !plates.containsKey(itemName)) {
+                                            plates.put(itemName, thisPlate);
+                                        }*/
+
+                                        g.setBusinessMenu(bM);
+                                        new DynamoDBManagerTask()
+                                                .execute(DynamoDBManagerType.INSERT_ITEM);
+
+                                        Intent intent = new Intent(view.getContext(), MainActivity.class);
+                                        startActivity(intent);
+                                    }
+                                });
+
+                        // Create the AlertDialog object and return it
+                        final AlertDialog dialog1 = builder1.create();
+                        dialog1.setCancelable(false);
+                        dialog1.show();
+
+                        AlertDialog.Builder builder2 = new AlertDialog.Builder(view.getContext());
+                        // Set the dialog title
+                        builder2.setTitle("Spicy Level")
+                                // Specify the list array, the items to be selected by default (null for none),
+                                // and the listener through which to receive callbacks when items are selected
+                                .setSingleChoiceItems (R.array.spicy_level, 0,
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                //mSelectedItems.add(
+                                                //        getResources().getStringArray(R.array.spicy_level)[i]);
+                                                spicyLevel[0] = getResources().getStringArray(R.array.spicy_level)[i];
+                                            }
+                                        })
+                                // Set the action buttons
+                                .setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        //Globals.getInstance().setDietaryRequirements(mSelectedItems);
+                                        dialog.dismiss();
+                                    }
+                                });
+
+                        // Create the AlertDialog object and return it
+                        final AlertDialog dialog2 = builder2.create();
+                        dialog2.setCancelable(false);
+                        dialog2.show();
+
+
+                        //--eow--
                     }
                 });
 

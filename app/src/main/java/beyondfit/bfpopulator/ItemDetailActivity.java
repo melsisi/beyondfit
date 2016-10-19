@@ -18,7 +18,8 @@ public class ItemDetailActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getSupportActionBar().setTitle("Add Plate Details");
+        Bundle bundle = getIntent().getExtras();
+        getSupportActionBar().setTitle("Add "+ bundle.getString("item"));
     }
 
     @Override

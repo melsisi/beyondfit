@@ -41,7 +41,7 @@ public class NutritionActivity extends AppCompatActivity {
                 //Multiple Choice
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(view.getContext());
                 // Set the dialog title
-                builder1.setTitle("This menu item contains \n (Check ALL that apply!)")
+                builder1.setTitle("This menu item contains\n(Check ALL that apply!)")
                         // Specify the list array, the items to be selected by default (null for none),
                         // and the listener through which to receive callbacks when items are selected
                         .setMultiChoiceItems(R.array.plate_contains_array, null,
