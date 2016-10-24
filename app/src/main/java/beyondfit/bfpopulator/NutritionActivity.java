@@ -88,7 +88,9 @@ public class NutritionActivity extends AppCompatActivity {
                                         .execute(DynamoDBManagerType.INSERT_ITEM);
 
                                 Intent intent = new Intent(view.getContext(), MainActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //--x--
                                 startActivity(intent);
+                                finish(); //--x--
                             }
                         });
 

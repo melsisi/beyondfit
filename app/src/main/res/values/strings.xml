@@ -73,6 +73,7 @@
         <item>Nile Perch</item>
         <item>Salmon</item>
         <item>Bream</item>
+        <item>Tuna</item>
         <item>Other</item>
     </string-array>
     <string-array name="item_seafood_kind_string_array">

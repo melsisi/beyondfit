@@ -444,7 +444,9 @@ public class ItemDetailActivityFragment extends Fragment {
                                                 .execute(DynamoDBManagerType.INSERT_ITEM);
 
                                         Intent intent = new Intent(view.getContext(), MainActivity.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); //--x--
                                         startActivity(intent);
+                                        getActivity().finish(); //--x--
                                     }
                                 });
 
