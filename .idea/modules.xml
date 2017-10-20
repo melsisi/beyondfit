@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Nutrima.iml" filepath="$PROJECT_DIR$/Nutrima.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NutrimaPopulator.iml" filepath="$PROJECT_DIR$/NutrimaPopulator.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beyondfit.iml" filepath="$PROJECT_DIR$/beyondfit.iml" />
     </modules>
   </component>
 </project>
